@@ -3,6 +3,11 @@ import * as s from './Main.styles'
 
 const Main = (props) => {
     const {
+        colorPalette = {
+            bgColor1: 'rgba(11, 171, 100, 0.8)',
+            bgColor2: 'rgba(59, 183, 143, 0.8)'
+        },
+        backgroundImage = '',
         quotes=[]
     } = props;
     const allQuotes = quotes.map((item,index) =>{
@@ -10,7 +15,7 @@ const Main = (props) => {
             <s.Card key={index} >
                 <s.ImageContainer>
                     <s.ImageWrapper> 
-                        <s.Image  src="images/steveJobs.jpg" loading="eager" decoding="async" width="100" height="100" alt="Berwyn Powell" />
+                        <s.Image  src={item.image} loading="eager" decoding="async" width="100" height="100" alt="Berwyn Powell" />
                     </s.ImageWrapper>
                     <s.Author>{item.author}</s.Author>
                 </s.ImageContainer>
@@ -22,7 +27,7 @@ const Main = (props) => {
 
 
     return (
-        <s.MainContainer>
+        <s.MainContainer colorPalette={colorPalette} backgroundImage={backgroundImage}>
             <Header />
             <s.Container> 
                 <s.Row>{allQuotes}</s.Row>

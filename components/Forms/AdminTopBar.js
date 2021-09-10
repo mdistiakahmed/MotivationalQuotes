@@ -1,45 +1,32 @@
-import * as s from './Topbar.styles';
+import * as s from './AdminTopBar.styles';
 import Link from 'next/link';
 
-const Topbar = () => {
+const AdminTopBar = () => {
     return (
         <s.Container>
             
             <s.Logo>
                 <Link href="/">
-                    <s.HomeURL>Home</s.HomeURL>
+                    <s.HomeURL>Inspire_Life</s.HomeURL>
                 </Link>
             </s.Logo>
             <s.ManuNav>
                 <s.Ul> 
                     <s.Li1>
                         <Link href="/details?category=story">
-                            <s.LiA>Story</s.LiA>
+                            <s.LiA>Authors Control</s.LiA>
                         </Link>
                      </s.Li1>
                     <s.Li2>
                         <Link href="/details?category=events">
-                            <s.LiA>Events</s.LiA>
+                            <s.LiA>Category Control</s.LiA>
                         </Link>
                     </s.Li2>
                     <s.Li3>
                         <Link href="/details?category=movieQuotes">
-                            <s.LiA>Movie Quotes</s.LiA>
+                            <s.LiA>Quotes Control</s.LiA>
                         </Link>
                     </s.Li3>
-                    <s.Li4>
-                        <Link href="/details?category=APJAbdulKalam">
-                            <s.LiA>APJ Abdul Kalam</s.LiA>
-                        </Link>
-                    </s.Li4>
-                    <s.Li5>
-                        <Link href="/details?category=Steve">
-                            <s.LiA>Steve Jobs</s.LiA>
-                        </Link>
-                    </s.Li5>
-                    <s.Li><s.LiButton>
-                        <span> Menu </span>
-                    </s.LiButton></s.Li>
 
                 </s.Ul>
             </s.ManuNav>
@@ -54,4 +41,4 @@ const Topbar = () => {
     )
 }
 
-export default Topbar
+export default AdminTopBar

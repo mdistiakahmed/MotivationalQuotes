@@ -174,27 +174,7 @@ export const Li3 = styled.li`
     }
 `
 
-export const Li4 = styled.li`
-    position: relative;
-    font-size: 18.9px;
-    font-weight: 700;
-    display: none;
-    transition-duration: 0.4s;
-    @media (min-width: 70em){
-        display: flex;
-    }
-`
 
-export const Li5 = styled.li`
-    position: relative;
-    font-size: 18.9px;
-    font-weight: 700;
-    display: none;
-    transition-duration: 0.4s;
-    @media (min-width: 77.8125em){
-        display: flex;
-    }
-`
 
 export const ButtonContainer = styled.div`
     display: flex;

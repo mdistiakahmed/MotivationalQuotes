@@ -4,9 +4,9 @@ export const MainContainer = styled.div`
     flex-grow: 1;
     background-image: linear-gradient(
         315deg,
-        rgba(35, 51, 41, 0.8) 0%,
-        rgba(99, 212, 113, 0.8) 74%),
-        url('images/tree.jpg');
+        ${p => p.colorPalette.bgColor1} 0%,
+        ${p => p.colorPalette.bgColor2} 74%),
+        url(${p => p.backgroundImage});
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
