@@ -4,7 +4,6 @@ import {b} from '../Data/b'
 import Main from "../components/Main/Main"
 
 const details = () => {
-    const router = useRouter();
     const { category } = router.query;
     console.log(category);
     const backgroundImage = 'images/mountain.jpg';
