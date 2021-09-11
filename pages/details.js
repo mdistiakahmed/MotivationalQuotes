@@ -4,8 +4,6 @@ import {b} from '../Data/b'
 import Main from "../components/Main/Main"
 
 const details = () => {
-    const { category } = router.query;
-    console.log(category);
     const backgroundImage = 'images/mountain.jpg';
     const colorPalette = {
         bgColor1: 'rgba(11, 171, 100, 0.2)',
