@@ -4,7 +4,6 @@ import Link from 'next/link';
 const Topbar = () => {
     return (
         <s.Container>
-            
             <s.Logo>
                 <Link href="/">
                     <s.HomeURL>Home</s.HomeURL>
@@ -29,7 +28,7 @@ const Topbar = () => {
                     </s.Li3>
                     <s.Li4>
                         <Link href="/details?category=APJAbdulKalam">
-                            <s.LiA>APJ Abdul Kalam</s.LiA>
+                            <s.LiA>Religious Quote</s.LiA>
                         </Link>
                     </s.Li4>
                     <s.Li5>

@@ -1,9 +1,7 @@
 import React from 'react'
 import Topbar from '../components/Topbar/Topbar'
-import {Quotes} from '../Data/Quotes'
 import {b} from '../Data/b'
 import Main from "../components/Main/Main"
-import { useRouter } from 'next/router'
 
 const details = () => {
     const router = useRouter();

@@ -13,20 +13,15 @@ const AdminTopBar = () => {
             <s.ManuNav>
                 <s.Ul> 
                     <s.Li1>
-                        <Link href="/details?category=story">
+                        <Link href="/author">
                             <s.LiA>Authors Control</s.LiA>
                         </Link>
                      </s.Li1>
                     <s.Li2>
-                        <Link href="/details?category=events">
-                            <s.LiA>Category Control</s.LiA>
-                        </Link>
-                    </s.Li2>
-                    <s.Li3>
-                        <Link href="/details?category=movieQuotes">
+                        <Link href="/quotesControl">
                             <s.LiA>Quotes Control</s.LiA>
                         </Link>
-                    </s.Li3>
+                    </s.Li2>
 
                 </s.Ul>
             </s.ManuNav>

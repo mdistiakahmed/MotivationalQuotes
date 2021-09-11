@@ -1,5 +1,5 @@
 import Header from '../Header/Header';
-import * as s from './Main.styles'
+import * as s from './Main.styles';
 
 const Main = (props) => {
     const {
