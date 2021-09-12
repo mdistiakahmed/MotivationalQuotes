@@ -1,12 +1,11 @@
 import React from 'react'
 import Topbar from '../components/Topbar/Topbar'
-import {b} from '../Data/b'
 import Main from "../components/Main/Main"
 import { useRouter } from 'next/router'
 import  { useState,useEffect } from 'react'
 import axios from 'axios'
 
-const details = () => {
+const Details = () => {
     const [quoteList, setQuoteList] = useState([]);
     const backgroundImage = 'images/mountain.jpg';
     const colorPalette = {
@@ -35,4 +34,4 @@ const details = () => {
     )
 }
 
-export default details
+export default Details
