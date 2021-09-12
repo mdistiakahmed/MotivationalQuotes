@@ -18,7 +18,7 @@ const QuotesInputForm = () => {
         setAuthorList([]);
         console.log('Use Effect is being called');
 
-        axios.get('http://localhost:8080/api/getAllAuthor')
+        axios.get('http://ec2-18-224-68-129.us-east-2.compute.amazonaws.com:8080/api/getAllAuthor')
         .then(res => {
             res.data.map((item,index) =>{
                 const newVal = { label: item.name,value: item.id};
@@ -45,7 +45,7 @@ const QuotesInputForm = () => {
         formData.append("category", selectedCategory);
 
         axios
-        .post('http://localhost:8080/api/addQuote', formData)
+        .post('http://ec2-18-224-68-129.us-east-2.compute.amazonaws.com:8080/api/addQuote', formData)
         .then((res) => {
             alert("Success");
         })
@@ -56,8 +56,7 @@ const QuotesInputForm = () => {
     }
 
     const seeAllQuotes = () => {
-        console.log('button clicked');
-        axios.get('http://localhost:8080/api/getAllQuotes')
+        axios.get('http://ec2-18-224-68-129.us-east-2.compute.amazonaws.com:8080/api/getAllQuotes')
         .then(res => {
             setQuoteList(res.data);
             console.log(quoteList);
@@ -79,8 +78,27 @@ const QuotesInputForm = () => {
                         <s.Author>{item.authorName}</s.Author>
                     </s.ImageContainer>
                     {item.quote}
+                    <p>Category: {item.category} </p>
+                    <s.ShowHideButton onClick={() => deleteQuote(item)}>Delete</s.ShowHideButton>
                </s.Card>)
     })
+
+    const deleteQuote = (item) => {
+        const r = window.confirm("Delete Quote of author: "+ item.authorName );
+        if(r == true){ 
+            console.log(item)
+            const url = `http://ec2-18-224-68-129.us-east-2.compute.amazonaws.com:8080/api/deleteQuote?quoteId=${item.quoteId}`;
+            axios
+            .delete(url)
+            .then(res => {
+                window.alert('Deleted');
+                seeAllQuotes();
+            })
+            .catch(err => {
+                window.alert('Cant Delete');
+            });
+        }
+    }
 
 
     return (

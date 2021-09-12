@@ -12,28 +12,28 @@ const Topbar = () => {
             <s.ManuNav>
                 <s.Ul> 
                     <s.Li1>
-                        <Link href="/details?category=story">
+                        <Link href="/">
                             <s.LiA>Story</s.LiA>
                         </Link>
                      </s.Li1>
                     <s.Li2>
-                        <Link href="/details?category=events">
+                        <Link href="/">
                             <s.LiA>Events</s.LiA>
                         </Link>
                     </s.Li2>
                     <s.Li3>
-                        <Link href="/details?category=movieQuotes">
+                        <Link href="/">
                             <s.LiA>Movie Quotes</s.LiA>
                         </Link>
                     </s.Li3>
                     <s.Li4>
-                        <Link href="/details?category=APJAbdulKalam">
+                        <Link href="/">
                             <s.LiA>Religious Quote</s.LiA>
                         </Link>
                     </s.Li4>
                     <s.Li5>
-                        <Link href="/details?category=Steve">
-                            <s.LiA>Steve Jobs</s.LiA>
+                        <Link href="/">
+                            <s.LiA>Songs</s.LiA>
                         </Link>
                     </s.Li5>
                     <s.Li><s.LiButton>

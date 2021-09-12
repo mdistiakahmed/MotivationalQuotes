@@ -1,5 +1,6 @@
 import * as s from './Header.styles';
 import {HeaderCategory} from '../../Data/HeaderCategoryData';
+import Link from 'next/link';
 
 const Header = () => {
     return (
@@ -10,9 +11,11 @@ const Header = () => {
                          HeaderCategory.map((item,index) =>{
                             return (
                                 <s.LiItem key={index}> 
-                                    <s.ItemRef href="https://www.w3schools.com/"  target="_blank">
-                                        {item.data}
-                                    </s.ItemRef>
+                                    <Link href={"/details?category="+item.data}>
+                                        <s.ItemRef>
+                                            {item.data}
+                                        </s.ItemRef>
+                                    </Link>
                                 </s.LiItem>
                                 )
                         })

@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div`  
-    background-color: rgb(211, 58, 44);
+    background-color: rgb(250, 85, 48);
     display: grid;
     grid-template-columns: min-content min-content 0 minmax(100px,100%);
     column-gap: 10px;

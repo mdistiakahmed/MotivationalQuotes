@@ -2,10 +2,7 @@ import styled from '@emotion/styled'
 
 export const MainContainer = styled.div`
     flex-grow: 1;
-    background-image: linear-gradient(
-        315deg,
-        ${p => p.colorPalette.bgColor1} 0%,
-        ${p => p.colorPalette.bgColor2} 74%),
+    background-image: 
         url(${p => p.backgroundImage});
     background-size: cover;
     background-repeat: no-repeat;
@@ -19,7 +16,6 @@ export const Container = styled.div`
     margin: 0 auto;
     z-index: 1;
     position: relative;
-    width: 85vw;
 `
 
 export const Row = styled.div`
@@ -53,19 +49,17 @@ export const Author = styled.p`
     text-decoration-skip-ink: auto;
     text-decoration-thickness: 1px;
     text-underline-offset: 1px;
-    color: #aa1994;
-    font-size: calc(18px + 1.1vw);
-    font-weight: bold;
+    color: rgb(250, 85, 48);
+    font-size: calc(10px + 1.1vw);
     font-family: cursive;
     margin-top: 0px;
 `
 
 export const ExploreMore = styled.a`
     text-shadow: 1px 1px 1px rgb(0 0 0 / 25%);
-    background: #aa1994;
-    background-image: linear-gradient(#aa1994,#aa1994);
-    font-size: calc(1em + .25vw);
-    padding: .75em 1em;
+    background: rgb(250, 85, 48);
+    font-size: 1em;
+    padding: .5em;
     display: inline-block;
     border-radius: 11px;
     text-align: center;
@@ -73,7 +67,6 @@ export const ExploreMore = styled.a`
     color: #fff;
     border: none;
     font-weight: 700;
-    margin-top: 32px;
     transition: all .2s ease-in-out; 
     :hover { 
         transform: scale(1.05); 
@@ -97,7 +90,7 @@ export const ImageWrapper = styled.div`
     transform-origin: 0 100%;
     transition: transform .2s ease-out;
     overflow: hidden;
-    border-bottom-color rgb(211, 58, 44);
+    border-bottom-color: rgb(250, 85, 48);
     border-bottom-left-radius: 21.6px;
     border-bottom-right-radius: 21.6px;
     border-bottom-style: solid;
@@ -107,13 +100,13 @@ export const ImageWrapper = styled.div`
     border-image-slice: 100%;
     border-image-source: none;
     border-image-width: 1;
-    border-left-color: rgb(211, 58, 44);
+    border-left-color: rgb(250, 85, 48);
     border-left-style: solid;
     border-left-width: 8px;
-    border-right-color: rgb(211, 58, 44);
+    border-right-color: rgb(250, 85, 48);
     border-right-style: solid;
     border-right-width: 8px;
-    border-top-color: rgb(211, 58, 44);
+    border-top-color: rgb(250, 85, 48);
     border-top-left-radius: 21.6px;
     border-top-right-radius: 21.6px;
     border-top-style: solid;
@@ -136,4 +129,10 @@ export const Image = styled.img`
         transform: scale(1.2) rotateZ(calc(11 * 0deg));
     }
 
+`
+
+export const Quote = styled.p`
+    font-size: calc(12px + 1.1vw);
+    font-weight: bold;
+    font-family: cursive;
 `

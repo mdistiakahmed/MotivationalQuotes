@@ -36,9 +36,14 @@ const AuthorInputForm = () => {
         formData.append("description", description);
         formData.append("picture", picture);
 
+        if(fileSize > 10) {
+            window.alert('File size is greater then 10kb')
+            return;
+        }
+
 
         axios
-        .post('http://localhost:8080/api/addAuthor', formData)
+        .post('http://ec2-18-224-68-129.us-east-2.compute.amazonaws.com:8080/api/addAuthor', formData)
         .then((res) => {
             alert("File Upload success");
             seeAllAuthor();
@@ -64,7 +69,7 @@ const AuthorInputForm = () => {
 
     const seeAllAuthor = () => {
         console.log('button clicked');
-        axios.get('http://localhost:8080/api/getAllAuthor')
+        axios.get('http://ec2-18-224-68-129.us-east-2.compute.amazonaws.com:8080/api/getAllAuthor')
         .then(res => {
             setAuthorList(res.data);
             console.log(authorList);
@@ -74,7 +79,7 @@ const AuthorInputForm = () => {
     const deleteAuthor = (item) => {
         const r = window.confirm("Do you really want to Delete author : " + item.name);
         if(r == true){ 
-            const url = `http://localhost:8080/api/deleteAuthor?authorId=${item.id}`;
+            const url = `http://ec2-18-224-68-129.us-east-2.compute.amazonaws.com:8080/api/deleteAuthor?authorId=${item.id}`;
             axios
             .delete(url)
             .then(res => {

@@ -1,7 +1,11 @@
 export const HeaderCategory = [
-    {id: 'story', data:'Story'},
-    {id: 'events', data:'Events'},
-    {id: 'MovieQuote', data:'Movie Quote'},
-    {id: 'ReligiousQuote', data:'Religious Quote'},
-    {id: 'SteveJobs', data:'Steve Jobs'}
+    {id: 'Success', data:'Success'},
+    {id: 'Wisdom', data:'Wisdom'},
+    {id: 'Anger', data:'Anger'},
+    {id: 'Life', data:'Life'},
+    {id: 'Love', data:'Love'},
+    {id: 'Depressed', data:'Depressed'},
+    {id: 'Suicide', data:'Suicide'},
+    {id: 'BrokenHeart', data:'Broken Heart'},
+    {id: 'Entrepreneur', data:'Entrepreneur'}
   ];
