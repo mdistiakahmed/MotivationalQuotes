@@ -12,7 +12,7 @@ const HomeScreen = () => {
         bgColor1: 'rgba(11, 171, 100, 0.8)',
         bgColor2: 'rgba(59, 183, 143, 0.8)'
     }
-    const getDataURL = 'http://ec2-18-224-68-129.us-east-2.compute.amazonaws.com:8080/api/getAllQuotes';
+    const getDataURL = 'https://ec2-18-224-68-129.us-east-2.compute.amazonaws.com:443/api/getAllQuotes';
 
     const router = useRouter()
     const { category } = router.query || 'Success'

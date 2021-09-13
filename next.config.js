@@ -3,7 +3,7 @@ module.exports = {
     return [
       {
         // matching all API routes
-        source: "http://ec2-18-224-68-129.us-east-2.compute.amazonaws.com:8080/api/:path*",
+        source: "/api/:path*",
         headers: [
           { key: "Access-Control-Allow-Credentials", value: "true" },
           { key: "Access-Control-Allow-Origin", value: "*" },
