@@ -17,7 +17,7 @@ export default function Home() {
         <HomeScreen />
 
         <footer className={styles.footer}>
-            Powered by Istiak
+            Powered by istiak
         </footer>
       </div>
 

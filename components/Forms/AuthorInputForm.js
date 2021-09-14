@@ -69,7 +69,7 @@ const AuthorInputForm = () => {
 
     const seeAllAuthor = () => {
         console.log('button clicked');
-        axios.get('http://ec2-18-224-68-129.us-east-2.compute.amazonaws.com:8080/api/getAllAuthor')
+        axios.get('https://motivationBackendLB-1513243918.us-east-2.elb.amazonaws.com:443/api/getAllAuthor')
         .then(res => {
             setAuthorList(res.data);
             console.log(authorList);
@@ -79,7 +79,7 @@ const AuthorInputForm = () => {
     const deleteAuthor = (item) => {
         const r = window.confirm("Do you really want to Delete author : " + item.name);
         if(r == true){ 
-            const url = `http://ec2-18-224-68-129.us-east-2.compute.amazonaws.com:8080/api/deleteAuthor?authorId=${item.id}`;
+            const url = `https://motivationBackendLB-1513243918.us-east-2.elb.amazonaws.com:443/api/deleteAuthor?authorId=${item.id}`;
             axios
             .delete(url)
             .then(res => {

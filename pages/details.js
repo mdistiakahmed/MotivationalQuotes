@@ -14,7 +14,7 @@ const Details = () => {
     }
     const router = useRouter()
     const { category } = router.query || 'Success'
-    let getDataURL = 'http://ec2-18-224-68-129.us-east-2.compute.amazonaws.com:8080/api/getQuotesByCategory?category='+category ;
+    let getDataURL = 'https://motivationBackendLB-1513243918.us-east-2.elb.amazonaws.com:443/api/getQuotesByCategory?category='+category ;
 
     useEffect(() => {
         console.log('use effect in detail page');

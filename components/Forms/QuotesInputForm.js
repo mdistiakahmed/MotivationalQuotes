@@ -18,7 +18,7 @@ const QuotesInputForm = () => {
         setAuthorList([]);
         console.log('Use Effect is being called');
 
-        axios.get('http://ec2-18-224-68-129.us-east-2.compute.amazonaws.com:8080/api/getAllAuthor')
+        axios.get('https://motivationBackendLB-1513243918.us-east-2.elb.amazonaws.com:443/api/getAllAuthor')
         .then(res => {
             res.data.map((item,index) =>{
                 const newVal = { label: item.name,value: item.id};
@@ -45,7 +45,7 @@ const QuotesInputForm = () => {
         formData.append("category", selectedCategory);
 
         axios
-        .post('http://ec2-18-224-68-129.us-east-2.compute.amazonaws.com:8080/api/addQuote', formData)
+        .post('https://motivationBackendLB-1513243918.us-east-2.elb.amazonaws.com:443/api/addQuote', formData)
         .then((res) => {
             alert("Success");
         })
@@ -56,7 +56,7 @@ const QuotesInputForm = () => {
     }
 
     const seeAllQuotes = () => {
-        axios.get('http://ec2-18-224-68-129.us-east-2.compute.amazonaws.com:8080/api/getAllQuotes')
+        axios.get('https://motivationBackendLB-1513243918.us-east-2.elb.amazonaws.com:443/api/getAllQuotes')
         .then(res => {
             setQuoteList(res.data);
             console.log(quoteList);
@@ -87,7 +87,7 @@ const QuotesInputForm = () => {
         const r = window.confirm("Delete Quote of author: "+ item.authorName );
         if(r == true){ 
             console.log(item)
-            const url = `http://ec2-18-224-68-129.us-east-2.compute.amazonaws.com:8080/api/deleteQuote?quoteId=${item.quoteId}`;
+            const url = `https://motivationBackendLB-1513243918.us-east-2.elb.amazonaws.com:443/api/deleteQuote?quoteId=${item.quoteId}`;
             axios
             .delete(url)
             .then(res => {
