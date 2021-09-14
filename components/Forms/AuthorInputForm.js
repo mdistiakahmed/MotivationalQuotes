@@ -43,7 +43,7 @@ const AuthorInputForm = () => {
 
 
         axios
-        .post('http://ec2-18-224-68-129.us-east-2.compute.amazonaws.com:8080/api/addAuthor', formData)
+        .post('https://motivationBackendLB-1513243918.us-east-2.elb.amazonaws.com:443/api/addAuthor', formData)
         .then((res) => {
             alert("File Upload success");
             seeAllAuthor();
