@@ -50,7 +50,7 @@ export const Author = styled.p`
     text-decoration-thickness: 1px;
     text-underline-offset: 1px;
     color: rgb(250, 85, 48);
-    font-size: calc(10px + 1.1vw);
+    font-size: 25px;
     font-family: cursive;
     margin-top: 0px;
 `
@@ -132,7 +132,6 @@ export const Image = styled.img`
 `
 
 export const Quote = styled.p`
-    font-size: calc(12px + 1.1vw);
-    font-weight: bold;
-    font-family: cursive;
+    font-size: 25px;
+    font-family: Century Gothic;
 `

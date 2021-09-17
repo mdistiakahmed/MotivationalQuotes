@@ -43,7 +43,7 @@ const AuthorInputForm = () => {
 
 
         axios
-        .post('https://motivationBackendLB-1513243918.us-east-2.elb.amazonaws.com:443/api/addAuthor', formData)
+        .post('https://api.illusionquote.com:443/api/addAuthor', formData)
         .then((res) => {
             alert("File Upload success");
             seeAllAuthor();
@@ -69,7 +69,7 @@ const AuthorInputForm = () => {
 
     const seeAllAuthor = () => {
         console.log('button clicked');
-        axios.get('https://motivationBackendLB-1513243918.us-east-2.elb.amazonaws.com:443/api/getAllAuthor')
+        axios.get('https://api.illusionquote.com:443/api/getAllAuthor')
         .then(res => {
             setAuthorList(res.data);
             console.log(authorList);
@@ -79,7 +79,7 @@ const AuthorInputForm = () => {
     const deleteAuthor = (item) => {
         const r = window.confirm("Do you really want to Delete author : " + item.name);
         if(r == true){ 
-            const url = `https://motivationBackendLB-1513243918.us-east-2.elb.amazonaws.com:443/api/deleteAuthor?authorId=${item.id}`;
+            const url = `https://api.illusionquote.com:443/api/deleteAuthor?authorId=${item.id}`;
             axios
             .delete(url)
             .then(res => {

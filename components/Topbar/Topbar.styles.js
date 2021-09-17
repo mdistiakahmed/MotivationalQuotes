@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div`  
-    background-color: rgb(250, 85, 48);
+    background-color: ${p => ( p.theme===1? 'rgba(206, 217, 106)' : (p.theme===2 ?'rgba(42, 38, 110)' : 'rgba(250, 85, 48)'))};
     display: grid;
     grid-template-columns: min-content min-content 0 minmax(100px,100%);
     column-gap: 10px;
@@ -216,7 +216,7 @@ export const Button = styled.button`
     margin: 4px 2px;
     cursor: pointer;
     font-family: cursive;
-    background-image: linear-gradient(#aa1994,#aa1994);
+    background-color: rgba(0,0,0,.2);
     box-shadow: 0 13px 27px -5px rgb(50 50 93 / 25%), 0 8px 16px -8px rgb(0 0 0 / 30%), 0 -6px 16px -6px rgb(0 0 0 / 3%);
 
     :active{

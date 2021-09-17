@@ -7,12 +7,12 @@ import axios from 'axios'
 
 const HomeScreen = () => {
     const [quoteList, setQuoteList] = useState([]);
-    const backgroundImage = 'images/sea.jpg';
+    const [backgroundImage, setBackgroundImage] = useState('images/sea.jpg');
     const colorPalette = {
         bgColor1: 'rgba(11, 171, 100, 0.8)',
         bgColor2: 'rgba(59, 183, 143, 0.8)'
     }
-    const getDataURL = 'https://motivationBackendLB-1513243918.us-east-2.elb.amazonaws.com:443/api/getAllQuotes';
+    const getDataURL = 'https://api.illusionquote.com:443/api/getAllQuotes';
 
     const router = useRouter()
     const { category } = router.query || 'Success'
@@ -28,8 +28,8 @@ const HomeScreen = () => {
 
     return (
         <div>
-            <Topbar />
-            <Main colorPalette={colorPalette} backgroundImage={backgroundImage} quoteList={quoteList}/>
+            <Topbar setBackgroundImage={setBackgroundImage}/>
+            <Main colorPalette={colorPalette} backgroundImage={backgroundImage} quoteList={quoteList} />
             
         </div>
     )

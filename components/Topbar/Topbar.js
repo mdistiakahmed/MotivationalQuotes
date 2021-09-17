@@ -1,9 +1,27 @@
 import * as s from './Topbar.styles';
 import Link from 'next/link';
+import  { useState,useEffect } from 'react'
 
-const Topbar = () => {
+const Topbar = ({setBackgroundImage}) => {
+    const [theme, setTheme] = useState(3);
+
+    const lightTheme = () => {
+        setTheme(1);
+        setBackgroundImage('images/mountain.jpg');
+    }
+
+    const darkTheme = () => {
+        setTheme(2);
+        setBackgroundImage('images/tree.jpg');
+    }
+
+    const joyTheme = () => {
+        setTheme(3);
+        setBackgroundImage('images/sea.jpg');
+    }
+
     return (
-        <s.Container>
+        <s.Container theme={theme}>
             <s.Logo>
                 <Link href="/">
                     <s.HomeURL>Home</s.HomeURL>
@@ -45,9 +63,9 @@ const Topbar = () => {
             <div> </div>
             <s.ButtonContainer>
                 <p>Select Theme </p>
-                <s.Button>light</s.Button>
-                <s.Button>Dark</s.Button>
-                <s.Button>Joy</s.Button>
+                <s.Button onClick={lightTheme}>light</s.Button>
+                <s.Button onClick={darkTheme}>Dark</s.Button>
+                <s.Button onClick={joyTheme}>Joy</s.Button>
             </s.ButtonContainer>
         </s.Container>
     )
