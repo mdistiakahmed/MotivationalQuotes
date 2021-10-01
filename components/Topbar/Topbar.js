@@ -4,6 +4,7 @@ import  { useState,useEffect } from 'react'
 
 const Topbar = ({setBackgroundImage}) => {
     const [theme, setTheme] = useState(3);
+    const [moreButtonExpanded, setMoreButtonExpanded] = useState(false);
 
     const lightTheme = () => {
         setTheme(1);
@@ -19,6 +20,8 @@ const Topbar = ({setBackgroundImage}) => {
         setTheme(3);
         setBackgroundImage('images/sea.jpg');
     }
+
+    console.log(moreButtonExpanded)
 
     return (
         <s.Container theme={theme}>
@@ -54,7 +57,7 @@ const Topbar = ({setBackgroundImage}) => {
                             <s.LiA>Songs</s.LiA>
                         </Link>
                     </s.Li5>
-                    <s.Li><s.LiButton>
+                    <s.Li><s.LiButton onClick={()=> setMoreButtonExpanded(!moreButtonExpanded)}>
                         <span> Menu </span>
                     </s.LiButton></s.Li>
 
@@ -67,6 +70,31 @@ const Topbar = ({setBackgroundImage}) => {
                 <s.Button onClick={darkTheme}>Dark</s.Button>
                 <s.Button onClick={joyTheme}>Joy</s.Button>
             </s.ButtonContainer>
+
+            <s.ManuNav2 moreButtonExpanded={moreButtonExpanded}> 
+            <s.Ul2> 
+                    <li>
+                        <Link href="/">
+                            <s.LiA>Story</s.LiA>
+                        </Link>
+                     </li>
+                    <li>
+                        <Link href="/">
+                            <s.LiA>Events</s.LiA>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="/">
+                            <s.LiA>Movie Quotes</s.LiA>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="/">
+                            <s.LiA>Religious Quote</s.LiA>
+                        </Link>
+                    </li>
+                </s.Ul2>
+            </s.ManuNav2>
         </s.Container>
     )
 }
