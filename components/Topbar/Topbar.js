@@ -4,7 +4,7 @@ import  { useState,useEffect } from 'react'
 
 const Topbar = ({setBackgroundImage}) => {
     const [theme, setTheme] = useState(3);
-    const [moreButtonExpanded, setMoreButtonExpanded] = useState(false);
+    const [moreButtonExpanded, setMoreButtonExpanded] = useState(true);
 
     const lightTheme = () => {
         setTheme(1);
@@ -57,22 +57,18 @@ const Topbar = ({setBackgroundImage}) => {
                             <s.LiA>Songs</s.LiA>
                         </Link>
                     </s.Li5>
-                    <s.Li><s.LiButton onClick={()=> setMoreButtonExpanded(!moreButtonExpanded)}>
-                        <span> Menu </span>
-                    </s.LiButton></s.Li>
+                    
+                    <s.Li>
+                        <s.LiButton onClick={()=> setMoreButtonExpanded(!moreButtonExpanded)}>
+                            <span> Menu </span>
+                        </s.LiButton>
+                    </s.Li>
 
                 </s.Ul>
             </s.ManuNav>
-            <div> </div>
-            <s.ButtonContainer>
-                <p>Select Theme </p>
-                <s.Button onClick={lightTheme}>light</s.Button>
-                <s.Button onClick={darkTheme}>Dark</s.Button>
-                <s.Button onClick={joyTheme}>Joy</s.Button>
-            </s.ButtonContainer>
 
             <s.ManuNav2 moreButtonExpanded={moreButtonExpanded}> 
-            <s.Ul2> 
+                <s.Ul2> 
                     <li>
                         <Link href="/">
                             <s.LiA>Story</s.LiA>
@@ -93,6 +89,7 @@ const Topbar = ({setBackgroundImage}) => {
                             <s.LiA>Religious Quote</s.LiA>
                         </Link>
                     </li>
+                
                 </s.Ul2>
             </s.ManuNav2>
         </s.Container>

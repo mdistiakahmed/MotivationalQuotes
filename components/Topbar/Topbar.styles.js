@@ -40,8 +40,11 @@ export const HomeURL = styled.a`
  
 
 export const ManuNav = styled.nav`
+    position: relative;
+    display: block;
     min-width: 0;
     color: #fff;
+    grid-column: span 2;
     font-size: 1.05em;
 `
 
@@ -54,11 +57,10 @@ export const Ul = styled.ul`
     width: 100%;
     flex-shrink: 1;
     min-width: 0;
-    justify-content: flex-start;
-    align-items: center;
 `
 
 export const Li = styled.li`
+    list-style: none;
     position: relative;
     font-size: 18.9px;
     font-weight: 700;
@@ -188,18 +190,23 @@ export const Button = styled.button`
 `
 
 export const ManuNav2 = styled.nav`
-    min-width: 0;
-    color: #fff;
-    font-size: 1.05em;
-    ${p => p.moreButtonExpanded? 'display: none;': null};
+    box-sizing: border-box;
+    display: block;
+    position: relative;
+    grid-row-start: 2;
+    grid-column: 1/5;
+    font-size: 18px;
+    ${p => p.moreButtonExpanded? 'display: none;': 'display: flex;'};
     
 `
 
 export const Ul2 = styled.ul`
     list-style: none;
-    align-items: flex-start;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     flex-wrap: wrap;
     justify-content: flex-start;
+    font-size: 18px;
+    color: #fff;
 `
