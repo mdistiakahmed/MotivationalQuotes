@@ -15,6 +15,12 @@ const AuthorInputForm = () => {
 
     const [addFormDisplayed, setAddFormDisplayed] = useState(false);
 
+    // ------pagination variables ------
+    const pageLimit = 1;
+    const [pageOffset, setPageOffset] = useState(0);
+    const [hasNext, setHasNext] = useState(false);
+    const [hasPrevious, setHasPrevious] = useState(false);
+
     // create a preview as a side effect, whenever selected file is changed
     useEffect(() => {
         if (!selectedFile) {
@@ -34,19 +40,19 @@ const AuthorInputForm = () => {
         const formData = new FormData();
         formData.append("name", name);
         formData.append("description", description);
-        formData.append("picture", picture);
+        formData.append("imgFile", picture);
 
-        if(fileSize > 10) {
+        if(fileSize > 1000) {
             window.alert('File size is greater then 10kb')
             return;
         }
 
 
         axios
-        .post('https://api.illusionquote.com:443/api/addAuthor', formData)
+        .post('http://localhost:8080/api/addAuthor', formData)
         .then((res) => {
             alert("File Upload success");
-            seeAllAuthor();
+            seeAllAuthor(pageOffset);
         })
         .catch((err) => alert("File Upload Error"));
 
@@ -67,24 +73,40 @@ const AuthorInputForm = () => {
         setPicture(file);
     }
 
-    const seeAllAuthor = () => {
+    const seeNextAuthors = () => {
+        seeAllAuthor(pageOffset + pageLimit);
+    }
+
+    const seePreviousAuthors = () => {
+        seeAllAuthor(pageOffset - pageLimit); 
+    }
+
+    const seeAllAuthor = (xx) => {
+        setPageOffset(xx);
         console.log('button clicked');
-        axios.get('https://api.illusionquote.com:443/api/getAllAuthor')
+        axios.get('http://localhost:8080/api/getAllAuthor',{
+            params: {
+              offset: xx,
+              limit: pageLimit
+             }
+          })
         .then(res => {
-            setAuthorList(res.data);
-            console.log(authorList);
+            console.log(res);
+            setAuthorList(res.data.authorList);
+            setHasNext(res.data.hasNext);
+            setHasPrevious(res.data.hasPrevious);
         })
     }
 
     const deleteAuthor = (item) => {
         const r = window.confirm("Do you really want to Delete author : " + item.name);
         if(r == true){ 
-            const url = `https://api.illusionquote.com:443/api/deleteAuthor?authorId=${item.id}`;
+            const url = `http://localhost:8080/api/deleteAuthor?authorId=${item.id}`;
             axios
             .delete(url)
             .then(res => {
                 window.alert('Deleted');
-                seeAllAuthor();
+                seeAllAuthor(pageOffset);
             })
             .catch(err => {
                 window.alert('Cant Delete');
@@ -97,7 +119,7 @@ const AuthorInputForm = () => {
                 <s.Card key={item.id}>
                     <s.ImageContainer>
                         <s.ImageWrapper> 
-                            <s.Image  src={'data:image/;base64,' + item.authorImage.data} loading="eager" decoding="async" width="100" height="100" alt="Berwyn Powell" />
+                            <s.Image  src={'https://illusionquote-author-images.s3.ap-south-1.amazonaws.com/' + item.imageFileName} loading="eager" decoding="async" width="100" height="100" alt="Berwyn Powell" />
                         </s.ImageWrapper>
                         <s.Author>{item.name}</s.Author>
                     </s.ImageContainer>
@@ -140,14 +162,20 @@ const AuthorInputForm = () => {
                 <s.ImagePreview> 
                     {selectedFile &&  <img src={preview}  width="200" height="200"/> }
                     {selectedFile &&  <p>File Size :  {fileSize} kb</p> }
-                    <p>Max Size :  10 kb</p>
+                    <p>Max Size :  1 MB</p>
                 </s.ImagePreview>
                 
             </s.Container>
 
-             <s.AuthorDeleteButton onClick={seeAllAuthor}>See All Author</s.AuthorDeleteButton>
+             <s.AuthorDeleteButton onClick={() => seeAllAuthor(pageOffset)}>See All Author</s.AuthorDeleteButton>
 
             <s.Row>{allAuthors}</s.Row>
+
+            <s.PaginationDiv>
+               {hasPrevious && <s.AuthorDeleteButton onClick={seePreviousAuthors}>Previous</s.AuthorDeleteButton> }
+               {hasNext && <s.AuthorDeleteButton onClick={seeNextAuthors}>Next</s.AuthorDeleteButton> }
+            </s.PaginationDiv>
+            
             
 
         </s.WholeContainer>

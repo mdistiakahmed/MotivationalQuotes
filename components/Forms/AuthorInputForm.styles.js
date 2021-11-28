@@ -175,3 +175,9 @@ export const AuthorDeleteButton = styled.button`
     }
     
 `
+
+export const PaginationDiv = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+`
