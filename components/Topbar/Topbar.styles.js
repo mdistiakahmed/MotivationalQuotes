@@ -19,6 +19,7 @@ export const Logo = styled.div`
     display: block;
     box-sizing: border-box;
     border-radius: 11px;
+    cursor: pointer;
     :hover { 
         transform: scale(1.1);
     }
@@ -97,63 +98,6 @@ export const LiA = styled.a`
         background-color: rgb(20 ,44 ,44, .1);
     }
     
-`
-
-export const Li1 = styled.li`
-    position: relative;
-    font-size: 18.9px;
-    font-weight: 700;
-    display: none;
-    transition: ease all .5s;
-    cursor: pointer;
-
-    @media (min-width: 42.9375em){
-        display: flex;
-    }
-`
-
-export const Li2 = styled.li`
-    position: relative;
-    font-size: 18.9px;
-    font-weight: 700;
-    display: none;
-    transition: ease all .5s;
-    @media (min-width: 52.5em){
-        display: flex;
-    }
-`
-
-export const Li3 = styled.li`
-    position: relative;
-    font-size: 18.9px;
-    font-weight: 700;
-    display: none;
-    transition: ease all .5s;
-    @media (min-width: 56.5625em){
-        display: flex;
-    }
-`
-
-export const Li4 = styled.li`
-    position: relative;
-    font-size: 18.9px;
-    font-weight: 700;
-    display: none;
-    transition-duration: 0.4s;
-    @media (min-width: 70em){
-        display: flex;
-    }
-`
-
-export const Li5 = styled.li`
-    position: relative;
-    font-size: 18.9px;
-    font-weight: 700;
-    display: none;
-    transition-duration: 0.4s;
-    @media (min-width: 77.8125em){
-        display: flex;
-    }
 `
 
 export const ButtonContainer = styled.div`

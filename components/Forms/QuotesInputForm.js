@@ -14,13 +14,24 @@ const QuotesInputForm = () => {
     const [addFormDisplayed, setAddFormDisplayed] = useState(false);
     const [quoteList, setQuoteList] = useState([]);
 
+    // ------pagination variables ------
+    const pageLimit = 1;
+    const [pageOffset, setPageOffset] = useState(0);
+    const [hasNext, setHasNext] = useState(false);
+    const [hasPrevious, setHasPrevious] = useState(false);
+
     const loadAuthor = () => {
         setAuthorList([]);
         console.log('Use Effect is being called');
 
-        axios.get('https://api.illusionquote.com:443/api/getAllAuthor')
+        axios.get('https://api.illusionquote.com:443/api/getAllAuthor' ,{
+            params: {
+              offset: 0,
+              limit: 100
+             }
+          })
         .then(res => {
-            res.data.map((item,index) =>{
+            res.data.authorList.map((item,index) =>{
                 const newVal = { label: item.name,value: item.id};
                 setAuthorList(prevArray => [...prevArray, newVal])
             });
@@ -32,12 +43,16 @@ const QuotesInputForm = () => {
         });
     }
 
+    const seeNextQuotes = () => {
+        seeAllQuotes(pageOffset + pageLimit);
+    }
+
+    const seePreviousQuotes = () => {
+        seeAllQuotes(pageOffset - pageLimit); 
+    }
+
     const handleFormSubmit = (event) => {
         event.preventDefault();
-        console.log('Form is submitted');
-        console.log(selectedAuthor);
-        console.log(selectedCategory);
-        console.log(quote);
 
         const formData = new FormData();
         formData.append("quote", quote);
@@ -55,11 +70,18 @@ const QuotesInputForm = () => {
 
     }
 
-    const seeAllQuotes = () => {
-        axios.get('https://api.illusionquote.com:443/api/getAllQuotes')
+    const seeAllQuotes = (xx) => {
+        setPageOffset(xx);
+        axios.get('https://api.illusionquote.com:443/api/getAllQuotes' ,{
+            params: {
+              offset: xx,
+              limit: pageLimit
+             }
+          })
         .then(res => {
-            setQuoteList(res.data);
-            console.log(quoteList);
+            setQuoteList(res.data.quoteList);
+            setHasNext(res.data.hasNext);
+            setHasPrevious(res.data.hasPrevious);
         })
     }
 
@@ -73,7 +95,7 @@ const QuotesInputForm = () => {
                 <s.Card key={index}>
                     <s.ImageContainer>
                         <s.ImageWrapper> 
-                            <s.Image  src={'data:image/;base64,' + item.authorImage.data} loading="eager" decoding="async" width="100" height="100" alt="Berwyn Powell" />
+                            <s.Image  src={'https://illusionquote-author-images.s3.ap-south-1.amazonaws.com/' + item.imageFileName} loading="eager" decoding="async" width="100" height="100" alt="Berwyn Powell" />
                         </s.ImageWrapper>
                         <s.Author>{item.authorName}</s.Author>
                     </s.ImageContainer>
@@ -92,7 +114,7 @@ const QuotesInputForm = () => {
             .delete(url)
             .then(res => {
                 window.alert('Deleted');
-                seeAllQuotes();
+                seeAllQuotes(0);
             })
             .catch(err => {
                 window.alert('Cant Delete');
@@ -127,9 +149,14 @@ const QuotesInputForm = () => {
                     <s.Button>Submit</s.Button>
                 </s.Form>
             </s.Container>
-            <s.ShowHideButton onClick={seeAllQuotes}>See All Quote</s.ShowHideButton>
+            <s.ShowHideButton onClick={() => seeAllQuotes(pageOffset)}>See All Quote</s.ShowHideButton>
 
             <s.Row>{allQuotes}</s.Row>
+
+            <s.PaginationDiv>
+               {hasPrevious && <s.AuthorDeleteButton onClick={seePreviousQuotes}>Previous</s.AuthorDeleteButton> }
+               {hasNext && <s.AuthorDeleteButton onClick={seeNextQuotes}>Next</s.AuthorDeleteButton> }
+            </s.PaginationDiv>
         </s.WholeContainer>
     )
 }

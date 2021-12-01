@@ -11,7 +11,7 @@ const Header = () => {
                          HeaderCategory.map((item,index) =>{
                             return (
                                 <s.LiItem key={index}> 
-                                    <Link href={"/details?category="+item.data}>
+                                    <Link href={"/"+item.id}>
                                         <s.ItemRef>
                                             {item.data}
                                         </s.ItemRef>

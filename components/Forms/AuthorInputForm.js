@@ -49,7 +49,7 @@ const AuthorInputForm = () => {
 
 
         axios
-        .post('http://localhost:8080/api/addAuthor', formData)
+        .post('https://api.illusionquote.com:443/api/addAuthor', formData)
         .then((res) => {
             alert("File Upload success");
             seeAllAuthor(pageOffset);
@@ -84,7 +84,7 @@ const AuthorInputForm = () => {
     const seeAllAuthor = (xx) => {
         setPageOffset(xx);
         console.log('button clicked');
-        axios.get('http://localhost:8080/api/getAllAuthor',{
+        axios.get('https://api.illusionquote.com:443/api/getAllAuthor',{
             params: {
               offset: xx,
               limit: pageLimit
@@ -101,7 +101,7 @@ const AuthorInputForm = () => {
     const deleteAuthor = (item) => {
         const r = window.confirm("Do you really want to Delete author : " + item.name);
         if(r == true){ 
-            const url = `http://localhost:8080/api/deleteAuthor?authorId=${item.id}`;
+            const url = `https://api.illusionquote.com:443/api/deleteAuthor?authorId=${item.id}`;
             axios
             .delete(url)
             .then(res => {

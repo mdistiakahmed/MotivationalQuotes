@@ -1,15 +1,18 @@
-import Main from "./Main/Main"
-import Topbar from "./Topbar/Topbar"
-import { useRouter } from 'next/router'
 import  { useState,useEffect } from 'react'
+import { useRouter } from 'next/router'
 import axios from 'axios'
-import * as s from './HomeScreen.styles';
+import * as s from './CategoryPageTemplate.styles'
+import Topbar from '../Topbar/Topbar'
+import Main from '../Main/Main'
 
+const CategoryPageTemplate = (props) => {
+    const {
+        backgroundImage = '',
+        getDataURL='',
+        category=''
+    } = props;
 
-const HomeScreen = () => {
     const [quoteList, setQuoteList] = useState([]);
-    const backgroundImage = 'images/sea.jpg';
-    const getDataURL = 'https://api.illusionquote.com:443/api/getAllQuotes';
 
     // ------pagination variables ------
     const pageLimit = 1;
@@ -18,12 +21,13 @@ const HomeScreen = () => {
     const [hasPrevious, setHasPrevious] = useState(false);
 
     const router = useRouter()
-    const { category } = router.query || 'Success'
+    const { xx } = router.query || 'Success'
 
     const seeAllQuotes = (currentOffset) => {
         setPageOffset(currentOffset);
-        axios.get('https://api.illusionquote.com:443/api/getAllQuotes' ,{
+        axios.get(getDataURL ,{
             params: {
+              category: category,
               offset: currentOffset,
               limit: pageLimit
              }
@@ -47,21 +51,18 @@ const HomeScreen = () => {
     useEffect(() => {
         console.log('use effect in Home page');
         seeAllQuotes(0);    
-      },[category]);
-
-    
+      },[xx]);
 
     return (
         <div>
             <Topbar />
-            <Main backgroundImage={backgroundImage} quoteList={quoteList} />
+            <Main  backgroundImage={backgroundImage} quoteList={quoteList}/>
             <s.PaginationDiv>
-               {hasPrevious && <s.AuthorDeleteButton onClick={seePreviousQuotes}>Previous</s.AuthorDeleteButton> }
-               {hasNext && <s.AuthorDeleteButton onClick={seeNextQuotes}>Next</s.AuthorDeleteButton> }
+               {hasPrevious && <s.PreviousButton onClick={seePreviousQuotes}>Previous</s.PreviousButton> }
+               {hasNext && <s.NextButton onClick={seeNextQuotes}>Next</s.NextButton> }
             </s.PaginationDiv>
-            
         </div>
     )
 }
 
-export default HomeScreen
+export default CategoryPageTemplate

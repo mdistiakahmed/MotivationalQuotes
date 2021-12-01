@@ -135,3 +135,12 @@ export const Quote = styled.p`
     font-size: 25px;
     font-family: Century Gothic;
 `
+
+export const LikeShareSection = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    
+`
