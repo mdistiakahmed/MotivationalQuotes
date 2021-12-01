@@ -12,7 +12,7 @@ const HomeScreen = () => {
     const getDataURL = 'https://api.illusionquote.com:443/api/getAllQuotes';
 
     // ------pagination variables ------
-    const pageLimit = 1;
+    const pageLimit = 10;
     const [pageOffset, setPageOffset] = useState(0);
     const [hasNext, setHasNext] = useState(false);
     const [hasPrevious, setHasPrevious] = useState(false);

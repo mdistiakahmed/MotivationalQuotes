@@ -13,7 +13,7 @@ const Entrepreneur = () => {
         <Head>
           <title>Illusionist</title>
           <meta name="description" content="Inspiring Quotes" />
-          <meta name="keywords" content="motivational, quotes, motivational quotes, inspiring quotes" />
+          <meta name="keywords" content="motivational, quotes, enterpreneur quotes, enterpreneurship" />
           <link rel="icon" href="/illusion.png" />
         </Head>
         <CategoryPageTemplate backgroundImage={backgroundImage} getDataURL={getDataURL} category={category}/>
