@@ -6,7 +6,7 @@ export default function Home() {
   return (
       <div className={styles.container}>
         <Head>
-          <title>Motivation</title>
+          <title>Illusionist</title>
           <meta name="description" content="Inspiring Quotes" />
           <meta name="keywords" content="motivational, quotes, motivational quotes, inspiring quotes" />
           <link rel="icon" href="/illusion.png" />

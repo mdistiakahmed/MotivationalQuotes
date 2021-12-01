@@ -8,7 +8,7 @@ import * as s from './HomeScreen.styles';
 
 const HomeScreen = () => {
     const [quoteList, setQuoteList] = useState([]);
-    const backgroundImage = 'images/sea.jpg';
+    const backgroundImage = 'https://illusionquote-author-images.s3.ap-south-1.amazonaws.com/Suicide.jpg';
     const getDataURL = 'https://api.illusionquote.com:443/api/getAllQuotes';
 
     // ------pagination variables ------
@@ -56,8 +56,8 @@ const HomeScreen = () => {
             <Topbar />
             <Main backgroundImage={backgroundImage} quoteList={quoteList} />
             <s.PaginationDiv>
-               {hasPrevious && <s.AuthorDeleteButton onClick={seePreviousQuotes}>Previous</s.AuthorDeleteButton> }
-               {hasNext && <s.AuthorDeleteButton onClick={seeNextQuotes}>Next</s.AuthorDeleteButton> }
+               {hasPrevious && <s.PreviousButton onClick={seePreviousQuotes}>Previous</s.PreviousButton> }
+               {hasNext && <s.NextButton onClick={seeNextQuotes}>Next</s.NextButton> }
             </s.PaginationDiv>
             
         </div>

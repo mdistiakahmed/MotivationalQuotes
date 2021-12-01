@@ -5,13 +5,13 @@ import styles from '../styles/Home.module.css'
 
 const Suicide = () => {
     const getDataURL = 'https://api.illusionquote.com:443/api/getQuotesByCategory';
-    const backgroundImage = 'images/sea.jpg';
+    const backgroundImage = 'https://illusionquote-author-images.s3.ap-south-1.amazonaws.com/Suicide.jpg';
     const category = 'Suicide';
 
     return (
         <div className={styles.container}>
         <Head>
-          <title>Motivation</title>
+          <title>Illusionist</title>
           <meta name="description" content="Inspiring Quotes" />
           <meta name="keywords" content="motivational, quotes, motivational quotes, inspiring quotes" />
           <link rel="icon" href="/illusion.png" />
