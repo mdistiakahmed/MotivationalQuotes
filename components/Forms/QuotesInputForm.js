@@ -15,7 +15,7 @@ const QuotesInputForm = () => {
     const [quoteList, setQuoteList] = useState([]);
 
     // ------pagination variables ------
-    const pageLimit = 1;
+    const pageLimit = 9;
     const [pageOffset, setPageOffset] = useState(0);
     const [hasNext, setHasNext] = useState(false);
     const [hasPrevious, setHasPrevious] = useState(false);
